@@ -19,14 +19,17 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions data-astro-reload />
+		<ViewTransitions />
 	</head>
 	<body>
 		<nav>
-			<ul><a href="/#mission">Back</a></ul><ul>
-				<a href="/#projects">bioresponsibility</a><a href="/restoring"
-					>Restoration</a
-				><a href="/#actionability">Bringing Change</a>
+			<ul>
+				<a href="/#mission" data-astro-reload>Back</a>
+			</ul>
+			<ul>
+				<a href="/#projects" data-astro-reload>bioresponsibility</a><a
+					href="/restoring">Restoration</a
+				><a href="/#actionability" data-astro-reload>Bringing Change</a>
 			</ul>
 		</nav>
 		<main>
