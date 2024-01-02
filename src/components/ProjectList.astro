@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = { projects: CollectionEntry<'projects'>[] };
+
+const { projects } = Astro.props;
+---
+
+<div class="project-list">
+	{
+		projects.map((item) => (
+			<article>
+				<h3>{item.data.title}</h3>{' '}
+				<a href={`/projects/${item.data.url}`}>Read Further</a>{' '}
+			</article>
+		))
+	}
+</div>
+
+<style>
+	article {
+		border-bottom: solid 2.5px #000;
+		padding: var(--space-2xs);
+	}
+</style>

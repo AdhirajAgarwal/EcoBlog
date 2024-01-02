@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = async () => {
+	const restoration = await getCollection('restoration');
+
+	const paths = restoration.map((item) => {
+		return {
+			params: { slug: item.slug },
+			props: { item },
+		};
+	});
+
+	return paths;
+};
+// interface Props {
+// 	item: CollectionEntry<'restoration'>;
+// }
+// const item = await getCollection('restoration');
+
+const { item } = Astro.props;
+
+const { Content } = await item.render();
+---
+
+<Layout title={item.data.title}>
+	<img src={item.data.coverLink} alt="" class="cover" />
+	<main>
+		<h1>{item.data.title}</h1>
+		<!-- <main set:html={item.body} />  -->
+		<Content />
+	</main>
+</Layout>
+<style>
+	.cover {
+		width: 100vw;
+		object-fit: cover;
+		max-height: 40rem;
+	}
+
+	main {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		padding: var(--space-m);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-s);
+		flex-direction: column;
+		max-width: 72ch;
+	}
+</style>

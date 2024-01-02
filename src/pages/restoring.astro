@@ -1,0 +1,21 @@
+---
+import Header from '../components/Header.astro';
+import RestorationList from '../components/RestorationList.astro';
+import { getCollection } from 'astro:content';
+Header;
+
+const RestorationCollection = await getCollection('restoration');
+
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Ecological Restoration | ">
+  
+
+<Header
+	href="flamingo"
+	title="Restoration of Our Ecosystems"
+	body="Rewilding, a visionary conservation approach, advocates for the restoration of natural ecosystems to their pristine and self-regulating states. At its core, rewilding seeks to reintroduce native species, rehabilitate landscapes, and remove human-imposed barriers that disrupt the delicate balance of ecosystems. By allowing nature to reclaim its spaces, rewilding not only revitalizes biodiversity but also enhances ecosystem resilience in the face of environmental challenges. Rewilding initiatives often focus on large-scale conservation efforts, such as the reintroduction of apex predators to restore trophic cascades and the creation of wildlife corridors to reconnect fragmented habitats. "
+/>
+<RestorationList restoration={RestorationCollection} />
+</Layout>

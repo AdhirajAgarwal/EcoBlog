@@ -1,0 +1,29 @@
+---
+interface Props {
+	url: string;
+	bg: string;
+	text: string;
+}
+
+const { url, bg, text } = Astro.props;
+---
+
+<a href={url}><slot /> +</a>
+
+<style define:vars={{ text, bg }}>
+	a {
+		text-decoration: none;
+		background-color: #96b79a;
+		background-color: var(--bg);
+		font-family: var(--font-title);
+		color: #000;
+		color: var(--text);
+		padding: var(--space-3xs) var(--space-s);
+		display: inline-block;
+	}
+
+	a::selection {
+		background: #fff;
+		color: #333;
+	}
+</style>

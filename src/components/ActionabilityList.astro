@@ -1,0 +1,89 @@
+---
+import Button from './Button.astro';
+
+const actionList = [
+	{
+		title: 'Be a responsible consumer',
+		subtitle: 'Having sustainable agricultural produces ',
+		desc: `African ecosystems are incredibly diverse, encompassing rainforests, savannas, deserts, wetlands, and coastal areas. The continent's ecosystems support a vast array of flora and fauna, from the biodiversity of the Congo Basin rainforests to the iconic wildlife of the savannas, including lions, elephants, and wildebeest. The deserts of North and southern Africa host unique species adapted to arid conditions, while wetlands and coastal ecosystems are also vital parts of the continent's natural environment. African ecosystems provide essential services such as water and air purification, climate regulation, and soil formation, and they hold significant cultural and economic importance for local communities.`,
+		posts: [
+			{
+				post: 'Producing Sustainably',
+				url: '/blog/sustainable-production',
+			},
+			{
+				post: 'Harms of Industrial Produce',
+				url: '/blog/industrial-agriculture',
+			},
+		],
+	},
+	{
+		title: 'Being part of Conservation-based Economy',
+		subtitle: 'National Parks',
+		desc: `African ecosystems are incredibly diverse, encompassing rainforests, savannas, deserts, wetlands, and coastal areas. The continent's ecosystems support a vast array of flora and fauna, from the biodiversity of the Congo Basin rainforests to the iconic wildlife of the savannas, including lions, elephants, and wildebeest. The deserts of North and southern Africa host unique species adapted to arid conditions, while wetlands and coastal ecosystems are also vital parts of the continent's natural environment. African ecosystems provide essential services such as water and air purification, climate regulation, and soil formation, and they hold significant cultural and economic importance for local communities.`,
+		posts: [
+			{
+				post: 'The human footprint',
+				url: '/blog/footprint',
+			},
+			{
+				post: 'Promoting Eco Tours',
+				url: '/blog/eco-tours',
+			},
+		],
+	},
+	{
+		title: 'Plastics',
+		subtitle: 'Say No to Plastics',
+		desc: `African ecosystems are incredibly diverse, encompassing rainforests, savannas, deserts, wetlands, and coastal areas. The continent's ecosystems support a vast array of flora and fauna, from the biodiversity of the Congo Basin rainforests to the iconic wildlife of the savannas, including lions, elephants, and wildebeest. The deserts of North and southern Africa host unique species adapted to arid conditions, while wetlands and coastal ecosystems are also vital parts of the continent's natural environment. African ecosystems provide essential services such as water and air purification, climate regulation, and soil formation, and they hold significant cultural and economic importance for local communities.`,
+		posts: [
+			{
+				post: 'The damage it causes',
+				url: '/blog/damage-plastic',
+			},
+			{
+				post: 'Alternatives to plastic',
+				url: '/blog/alternatives-plastic',
+			},
+		],
+	},
+];
+---
+
+<div class="container">
+	{
+		actionList.map((item) => (
+			<article>
+				<h3>{item.title}</h3>
+				<h6 class="subtitle">{item.subtitle}</h6>
+				<p>{item.desc}</p>
+				<div class="button-wrapper">
+					{item.posts.map((page) => (
+						<Button url={page.url} bg="#334D2F" text="#fff">
+							{page.post}
+						</Button>
+					))}
+				</div>
+			</article>
+		))
+	}
+</div>
+
+<style>
+	article {
+		background: #fde9bb;
+		color: #334d2f;
+		margin: var(--space-l) 0;
+		padding: var(--space-m);
+
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.button-wrapper {
+		display: flex;
+		gap: var(--space-2xs);
+		flex-wrap: wrap;
+	}
+</style>

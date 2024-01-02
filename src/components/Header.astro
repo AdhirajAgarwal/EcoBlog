@@ -1,0 +1,94 @@
+---
+interface Props {
+	title: string;
+	href: string;
+	body: string;
+	blacktext?: boolean;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<header>
+	<img loading="eager" src=`${href}.png` alt="background" class="background" />
+	<h1>{title}</h1>
+	<p>{body}</p>
+	<img
+		loading="eager"
+		src=`${href}-overlay.png`
+		alt="overlay"
+		class="overlay"
+	/>
+</header>
+
+<style>
+	header {
+		min-height: max(100vh, 700px);
+		max-height: 200vh;
+		position: relative;
+		padding: 1rem;
+		margin-top: 2rem;
+	}
+	header * {
+		@media screen and (max-width: 600px) {
+			position: relative;
+			color: black;
+		}
+	}
+
+	.overlay {
+		@media screen and (max-width: 600px) {
+			display: none;
+		}
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		object-fit: cover;
+		top: 0;
+		left: 0;
+	}
+
+	h1 {
+		color: #fff;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		font-size: var(--step-5);
+		margin-top: var(--space-l);
+	}
+
+	p {
+		position: absolute;
+		bottom: 10%;
+		max-width: 50ch;
+		color: #fff;
+		/* background: #333; */
+		/* padding: var(--space-m); */
+		@media screen and (max-width: 600px) {
+			text-align: center;
+		}
+	}
+
+	/* Z-indexing */
+	img.background {
+		z-index: 2;
+	}
+	img.overlay {
+		z-index: 4;
+		opacity: 0.85;
+	}
+	h1 {
+		z-index: 3;
+	}
+
+	p {
+		z-index: 5;
+	}
+
+	* {
+		user-select: none;
+	}
+</style>

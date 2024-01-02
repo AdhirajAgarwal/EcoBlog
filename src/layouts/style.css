@@ -1,0 +1,197 @@
+
+			@font-face {
+				font-family: 'Sora';
+				src: url('/Sora-ExtraBold.otf');
+				font-weight: 900;
+			}
+
+			@font-face {
+				font-family: 'Sora';
+				src: url('/Sora-Bold.otf');
+				font-weight: 800;
+			}
+			@font-face {
+				font-family: 'Open Sauce';
+				src: url('/OpenSauceSans-Regular.ttf');
+				font-weight: 400;
+			}
+			@font-face {
+				font-family: 'Open Sauce';
+				src: url('/OpenSauceSans-Medium.ttf');
+				font-weight: 500;
+			}
+
+/* Box-Sizing Rule */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove Default Margin and Padding */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove Default List styling */
+
+ul,
+ol {
+	list-style: none;
+}
+
+/* Customizing Links */
+
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/* Making Images Responsive */
+
+img,
+picture {
+	max-width: 100%;
+	display: block;
+	user-select: none;
+	height: auto;
+}
+
+/* Setting the font for form elements */
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Adding smooth scrolling */
+
+html:focus-within{
+	scroll-behavior: smooth;
+}
+
+/* Making Focus States a little bit cooler */
+
+@media (prefers-reduced-motion: no-preference) {
+	:focus {
+		transition: outline-offset 0.25s ease;
+	}
+	:focus:not(:active) {
+		outline-offset: 5px;
+	}
+}
+
+/* prefers-reduced-motion */
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Styling the body */
+body {
+	margin: 0 !important;
+}
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	overflow-x: hidden;
+}
+
+:root {
+	--font-title:'Sora', 'sans-serif';
+	--font-body:'Open Sauce','sans-serif';
+	font-weight: 500;
+	
+	/* Spacing */
+	--space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+	/* Type scale */
+	 --step-0: clamp(1.1rem, 1.04rem + 0.4vw, 1.2rem);
+  --step-1: clamp(1.35rem, 1.182rem + 0.8402vw, 1.8331rem);
+  --step-2: clamp(1.62rem, 1.3337rem + 1.4315vw, 2.4431rem);
+  --step-3: clamp(1.8rem, 1.4rem + 2.1vw, 3.1rem);
+  --step-4: clamp(2.3325rem, 1.6338rem + 3.4935vw, 4.3412rem);
+  --step-5: clamp(2.7994rem, 1.7602rem + 5.1957vw, 5.7869rem);
+ 
+
+	/* Basic */
+	font-family: var(--font-body);
+	font-size: var(--step-0);
+}
+
+
+/* flex containers */
+.flex-container{
+	display: flex;
+	gap: var(--space-m); 
+}
+.flex-container > *{
+	width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: var(--font-title);
+	font-weight: 900;
+	text-transform: capitalize;
+}
+
+h1{
+	font-size: var(--step-3);
+}
+
+h2{
+	font-size: var(--step-3);
+}
+
+h3{
+	font-size: var(--step-1);
+}
+
+h6{
+	font-size: calc(0.8 * var(--step-0));
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+ 
+article, div{
+	max-width: 60rem;
+}
+
+*::selection{
+color: #fff;background: #4d5541af;
+}
+
+body::-webkit-scrollbar{
+	width: var(--space-3xs);
+	background: #3333334d;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: #435320;
+	border-radius: 100rem;
+	border: solid #3333334d 2px;
+}
